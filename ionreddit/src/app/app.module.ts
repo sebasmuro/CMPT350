@@ -8,6 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { SettingsPage } from '../pages/settings/settings';
 import { RedditPage } from '../pages/reddit/reddit';
 import { TabsPage } from '../pages/tabs/tabs';
+import { DetailsPage } from '../pages/details/details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     SettingsPage,
     RedditPage,
-    TabsPage
+    TabsPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     SettingsPage,
     RedditPage,
-    TabsPage
+    TabsPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
