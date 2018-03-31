@@ -6,7 +6,7 @@ import {RedditService} from '../../app/services/reddit.service';
   templateUrl: 'reddit.html'
 })
 export class RedditPage {
-
+items: any;
   constructor(public navCtrl: NavController, private redditService:RedditService) {
     
   }
@@ -16,7 +16,7 @@ export class RedditPage {
   getPosts(category, limit)
   {
     this.redditService.getPosts(category,limit).subscribe(response => {
-      console.log(response);
+      this.items = response.data.children;
     });
   }
 }

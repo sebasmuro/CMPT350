@@ -7,6 +7,15 @@
   </ion-header>
   
   <ion-content padding>
-  
+  <ion-list *ngFor = "let item of items">
+    <ion-card>
+    <ion-avatar>
+        <img src="{{item.data.thumbnail}}">
+      </ion-avatar>
+    <ion-item >
+        <h2>{{item.data.title}}</h2>
+    </ion-item>
+  </ion-card>
+  </ion-list>
   </ion-content>
   
