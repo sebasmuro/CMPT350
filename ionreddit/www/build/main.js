@@ -103,7 +103,7 @@ var TabsPage = /** @class */ (function () {
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_1__about_about__["a" /* AboutPage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Reddit" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Settings" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="About" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\tabs\tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Reddit" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Settings" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="About" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/tabs/tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -138,9 +138,9 @@ var AboutPage = /** @class */ (function () {
     }
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\about\about.html"*/'<ion-header>\n  <ion-navbar color = "secondary">\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\about\about.html"*/
+            selector: 'page-about',template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar color = "secondary">\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/about/about.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], AboutPage);
     return AboutPage;
 }());
@@ -156,6 +156,7 @@ var AboutPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(25);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -167,17 +168,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var SettingsPage = /** @class */ (function () {
     function SettingsPage(navCtrl) {
         this.navCtrl = navCtrl;
+        this.form = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            firstName: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]("", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required),
+        });
     }
+    SettingsPage.prototype.processForm = function () {
+        var alert = this.navCtrl.create({
+            title: "Account Created",
+            message: "Created Account for: " + this.form.value.firstName,
+            buttons: [{
+                    text: 'Ok',
+                }]
+        });
+        if (this.form.status === 'VALID') {
+            alert.present();
+        }
+    };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'settings',template:/*ion-inline-start:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\settings\settings.html"*/'<ion-header>\n    <ion-navbar color = "primary">\n      <ion-title>\n        Reddit Crawler\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n  \n  </ion-content>\n   '/*ion-inline-end:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\settings\settings.html"*/
+            selector: 'settings',template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Reddit Crawler\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-content padding>\n\n    <form (submit)="processForm()" [formGroup]="form">\n        <ion-list>\n  \n        <ion-item>\n          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>\n        </ion-item>\n  \n      </ion-list>\n      <div padding>\n        <button ion-button block type="submit">Create Account</button>\n      </div>\n    </form>\n  \n  </ion-content>\n\n</ion-content>'/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/settings/settings.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object])
     ], SettingsPage);
     return SettingsPage;
+    var _a;
 }());
 
 //# sourceMappingURL=settings.js.map
@@ -235,12 +253,11 @@ var RedditPage = /** @class */ (function () {
     };
     RedditPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'reddit',template:/*ion-inline-start:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\reddit\reddit.html"*/'<ion-header>\n    <ion-navbar color = "primary">\n      <ion-title>\n        Reddit Crawler\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-label fixed>Category</ion-label>\n      <ion-select (ionChange) = "changeCategory()" [(ngModel)] = "category" name = "category">\n        <ion-option value = "sports">Sports</ion-option>\n        <ion-option value = "funny">Funny</ion-option>\n        <ion-option value = "Funnypics">Funny Pics</ion-option>\n        <ion-option value = "catpictures">Cat Pictures</ion-option> \n        <ion-option value = "earthporn">Landscapes</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n  <ion-list *ngFor = "let item of items">\n    <ion-card>\n    <ion-avatar>\n        <img src="{{item.data.preview.images[0].source.url}}">\n      </ion-avatar>\n    <ion-item >\n        <h2>{{item.data.title}}</h2>\n    </ion-item>\n    <p>\n      <ion-icon name ="thumbs-up"> {{item.data.score}}</ion-icon>\n      <ion-icon name ="chatboxes"> {{item.data.num_comments}}</ion-icon>\n    </p> \n    <button ion-button clear item-right (click) = "viewItem(item.data)">\n      View\n    </button>\n  </ion-card>\n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\reddit\reddit.html"*/
+            selector: 'reddit',template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/reddit/reddit.html"*/'<ion-header>\n    <ion-navbar color = "primary">\n      <ion-title>\n        Reddit Crawler\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-label fixed>Category</ion-label>\n      <ion-select (ionChange) = "changeCategory()" [(ngModel)] = "category" name = "category">\n        <ion-option value = "sports">Sports</ion-option>\n        <ion-option value = "funny">Funny</ion-option>\n        <ion-option value = "Funnypics">Funny Pics</ion-option>\n        <ion-option value = "catpictures">Cat Pictures</ion-option> \n        <ion-option value = "earthporn">Landscapes</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n  <ion-list *ngFor = "let item of items">\n    <ion-card>\n    <ion-avatar>\n        <img src="{{item.data.preview.images[0].source.url}}">\n      </ion-avatar>\n    <ion-item >\n        <h2>{{item.data.title}}</h2>\n    </ion-item>\n    <p>\n      <ion-icon name ="thumbs-up"> {{item.data.score}}</ion-icon>\n      <ion-icon name ="chatboxes"> {{item.data.num_comments}}</ion-icon>\n    </p> \n    <button ion-button clear item-right (click) = "viewItem(item.data)">\n      View\n    </button>\n  </ion-card>\n  </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/reddit/reddit.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_reddit_service__["a" /* RedditService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_reddit_service__["a" /* RedditService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_services_reddit_service__["a" /* RedditService */]])
     ], RedditPage);
     return RedditPage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=reddit.js.map
@@ -272,9 +289,9 @@ var DetailsPage = /** @class */ (function () {
         this.item = params.get('item');
     }
     DetailsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\details\details.html"*/'<ion-header>\n\n        <ion-navbar color = "secondary">\n\n          <ion-title>\n\n            {{item.title}}\n\n          </ion-title>\n\n        </ion-navbar>\n\n      </ion-header>\n\n      \n\n      <ion-content padding>\n\n        <ion-card>\n\n            <img src = "{{item.preview.images[0].source.url}}"/>\n\n            <ion-card-content>\n\n                <ion-card-title>\n\n                    {{item.title}}\n\n                </ion-card-title>\n\n                <ion-list>\n\n                    <ion-item>\n\n                        <ion-icon name = "person" item-left></ion-icon>\n\n                        Author\n\n                        <ion-note item-right>\n\n                            {{item.author}}\n\n                        </ion-note>\n\n                    </ion-item>\n\n                    <ion-item>\n\n                            <ion-icon name = "thumbs-up" item-left></ion-icon>\n\n                            Score\n\n                            <ion-note item-right>\n\n                                {{item.score}}\n\n                            </ion-note>\n\n                        </ion-item>\n\n                        <ion-item>\n\n                                <ion-icon name = "chatboxes" item-left></ion-icon>\n\n                                Comments\n\n                                <ion-note item-right>\n\n                                    {{item.num_comments}}\n\n                                </ion-note>\n\n                            </ion-item>\n\n                </ion-list>\n\n                <a ion-button target = "_blank" href = "http://reddit.com/{{item.permalink}}"> Check this out </a>\n\n            </ion-card-content>\n\n        </ion-card>\n\n      </ion-content>\n\n      '/*ion-inline-end:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\pages\details\details.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/details/details.html"*/'<ion-header>\n\n        <ion-navbar color = "secondary">\n\n          <ion-title>\n\n            {{item.title}}\n\n          </ion-title>\n\n        </ion-navbar>\n\n      </ion-header>\n\n      \n\n      <ion-content padding>\n\n        <ion-card>\n\n            <img src = "{{item.preview.images[0].source.url}}"/>\n\n            <ion-card-content>\n\n                <ion-card-title>\n\n                    {{item.title}}\n\n                </ion-card-title>\n\n                <ion-list>\n\n                    <ion-item>\n\n                        <ion-icon name = "person" item-left></ion-icon>\n\n                        Author\n\n                        <ion-note item-right>\n\n                            {{item.author}}\n\n                        </ion-note>\n\n                    </ion-item>\n\n                    <ion-item>\n\n                            <ion-icon name = "thumbs-up" item-left></ion-icon>\n\n                            Score\n\n                            <ion-note item-right>\n\n                                {{item.score}}\n\n                            </ion-note>\n\n                        </ion-item>\n\n                        <ion-item>\n\n                                <ion-icon name = "chatboxes" item-left></ion-icon>\n\n                                Comments\n\n                                <ion-note item-right>\n\n                                    {{item.num_comments}}\n\n                                </ion-note>\n\n                            </ion-item>\n\n                </ion-list>\n\n                <a ion-button target = "_blank" href = "http://reddit.com/{{item.permalink}}"> Check this out </a>\n\n            </ion-card-content>\n\n        </ion-card>\n\n      </ion-content>\n\n      '/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/details/details.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
     ], DetailsPage);
     return DetailsPage;
 }());
@@ -347,12 +364,12 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_5__pages_about_about__["a" /* AboutPage */],
@@ -364,7 +381,7 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
+                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
             ]
         })
     ], AppModule);
@@ -412,10 +429,10 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Users\mib352\Documents\GitHub\CMPT350\ionreddit\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/app/app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_4__services_reddit_service__["a" /* RedditService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());

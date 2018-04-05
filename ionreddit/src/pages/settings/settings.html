@@ -1,12 +1,28 @@
 <ion-header>
-    <ion-navbar color = "primary">
-      <ion-title>
-        Reddit Crawler
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
+  <ion-navbar color="primary">
+    <ion-title>
+      Reddit Crawler
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
   <ion-content padding>
+
+    <form (submit)="processForm()" [formGroup]="form">
+        <ion-list>
+  
+        <ion-item>
+          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>
+        </ion-item>
+  
+      </ion-list>
+      <div padding>
+        <button ion-button block type="submit">Create Account</button>
+      </div>
+    </form>
   
   </ion-content>
-   
+
+</ion-content>
