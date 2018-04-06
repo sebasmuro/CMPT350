@@ -45,14 +45,16 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
+$background-ios-color: #f53d3d
+$action-sheet-ios-button-border-color rgb(167, 7, 7);
 
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+  $background-md-color: #488aff
+  $action-sheet-md-button-border-color #c7da1d;
 
 
 
@@ -86,3 +88,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+ 
