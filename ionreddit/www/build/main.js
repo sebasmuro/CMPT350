@@ -192,10 +192,9 @@ var SettingsPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'settings',template:/*ion-inline-start:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/settings/settings.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Reddit Crawler\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-content padding>\n\n    <form (submit)="processForm()" [formGroup]="form">\n        <ion-list>\n  \n        <ion-item>\n          <ion-input formControlName="firstName" type="text" placeholder="First Name"></ion-input>\n        </ion-item>\n  \n      </ion-list>\n      <div padding>\n        <button ion-button block type="submit">Create Account</button>\n      </div>\n    </form>\n  \n  </ion-content>\n\n</ion-content>'/*ion-inline-end:"/Users/sebastianguerrero/Desktop/CMPT350/ionreddit/src/pages/settings/settings.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], SettingsPage);
     return SettingsPage;
-    var _a;
 }());
 
 //# sourceMappingURL=settings.js.map
